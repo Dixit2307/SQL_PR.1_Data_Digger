@@ -1,4 +1,5 @@
 -- SQLBook: Markup
+
 This cell have Basic of Database Creationand  And Tabel Creation.
 -- SQLBook: Markup
 Table 1 : Customers Table
@@ -27,19 +28,19 @@ This cell have Queries
 3. Delete a customer using their CustomerID.
 4. Display all customers whose name is 'Sumit'.
 -- SQLBook: Markup
-1 Queary : Retrieve all customer details.
+1 Query : Retrieve all customer details.
 -- SQLBook: Code
 SELECT * FROM customers;
 -- SQLBook: Markup
-2 Queary : Update a customer's address. 
+2 Query : Update a customer's address. 
 -- SQLBook: Code
 UPDATE Customers SET Address = 'Noida' WHERE Customer_id = 1001;
 -- SQLBook: Markup
-3 Queary : Delete a customer using their CustomerID.
+3 Query : Delete a customer using their CustomerID.
 -- SQLBook: Code
 DELETE FROM Customers WHERE Customer_id = 1005;
 -- SQLBook: Markup
-4 Queary : Display all customers whose name is 'Sumit'.
+4 Query : Display all customers whose name is 'Sumit'.
 -- SQLBook: Code
 SELECT * FROM Customers WHERE Name = "Sumit";
 -- SQLBook: Markup
@@ -59,7 +60,7 @@ CREATE TABLE orders(
 5. Retrieve orders placed in the last 30 days.
 6. Retrieve the highest, lowest, and average order amount using aggregate functions.
 -- SQLBook: Markup
-Queary 1 : Insert at least 5 sample orders into the Orders table.
+Query 1 : Insert at least 5 sample orders into the Orders table.
 -- SQLBook: Code
 INSERT INTO orders VALUES
 (101 , 1001 , '2026-06-02' , 20000),
@@ -69,24 +70,25 @@ INSERT INTO orders VALUES
 (105 , 1005 , '2026-06-15' , 35000);
 
 -- SQLBook: Markup
-Queary : Retrieve all orders made by a specific customer
+Query : Retrieve all orders made by a specific customer
 -- SQLBook: Code
 SELECT * FROM orders WHERE customer_id = '1001';
 -- SQLBook: Markup
-Queary : Update an order's total amount.
+Query : Update an order's total amount.
 -- SQLBook: Code
 UPDATE Orders SET total_amount = 30000 WHERE order_id = 2;
 
 -- SQLBook: Markup
-Queary :  Delete an order using its OrderID.
+Query :  Delete an order using its OrderID.
 -- SQLBook: Code
 DELETE FROM orders WHERE order_id = '101';
 -- SQLBook: Markup
-Queary : Retrieve orders placed in the last 30 days
+Query : Retrieve orders placed in the last 30 days
 -- SQLBook: Code
-SELECT * FROM orders WHERE order_date 
+SELECT * FROM orders WHERE order_date >= CURRENT_DATE - INTERVAL 30 DAY;
+
 -- SQLBook: Markup
-Queary : 
+Query : 
 Retrieve the highest, lowest, and average order amount using aggregate functions.
 -- SQLBook: Code
 
@@ -108,7 +110,7 @@ CREATE TABLE products(
 5. Retrieve products whose price is between 500 and 20000.
 6. Retrieve the most expensive and cheapest product using MAX() and MIN().
 -- SQLBook: Markup
-Queary : Insert at least 5 sample products into the Products table.
+Query : Insert at least 5 sample products into the Products table.
 -- SQLBook: Code
 INSERT INTO Products ( product_id, product_name, price, stock) VALUES
 (110 , 'Laptop', 94000, 10),
@@ -119,23 +121,23 @@ INSERT INTO Products ( product_id, product_name, price, stock) VALUES
 
   
 -- SQLBook: Markup
-Queary : Retrieve all products sorted by price in descending order
+Query : Retrieve all products sorted by price in descending order
 -- SQLBook: Code
 SELECT * FROM products ORDER BY price DESC;
 -- SQLBook: Markup
-Queary : Update the price of a specific product.
+Query : Update the price of a specific product.
 -- SQLBook: Code
 UPDATE products SET price = 40000 WHERE product_id = '2';
 -- SQLBook: Markup
-Queary : Delete a product if it's out of stock.
+Query : Delete a product if it's out of stock.
 -- SQLBook: Code
 DELETE FROM products WHERE stock = '0';
 -- SQLBook: Markup
-Queary : Retrieve products whose price is between 500 and 20000.
+Query : Retrieve products whose price is between 500 and 20000.
 -- SQLBook: Code
 SELECT * FROM products WHERE price >='500' AND Price <='2000';
 -- SQLBook: Markup
-Queary : Retrieve the most expensive and cheapest product using MAX() and MIN().
+Query : Retrieve the most expensive and cheapest product using MAX() and MIN().
 -- SQLBook: Code
 SELECT MAX(price) AS Expensive , MIN(price) AS Cheap  FROM products;
 -- SQLBook: Markup
@@ -157,7 +159,7 @@ CREATE TABLE order_details(
 4. Retrieve the top 3 most ordered products.
 5. Count how many times a specific product has been sold using COUNT().
 -- SQLBook: Markup
-Queary : Insert at least 5 sample records into the OrderDetails table.
+Query : Insert at least 5 sample records into the OrderDetails table.
 -- SQLBook: Code
 INSERT INTO order_details VALUES
 (1, 102, 110, 1, 94000.00),
@@ -183,5 +185,5 @@ ORDER BY Total_sold DESC LIMIT 3;
 -- SQLBook: Markup
 Query : Count how many times a specific product has been sold using COUNT().
 -- SQLBook: Code
-SELECT COUNT(*) AS Total_Times_Sold FROM order_details WHERE product_id = 120;
+SELECT COUNT(*) AS total_sales FROM order_details WHERE product_id = '120';
 -- SQLBook: Markup
